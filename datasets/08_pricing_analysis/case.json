@@ -1,0 +1,18 @@
+{
+  "question": "Does raising prices reduce units sold? Look specifically at P01, which changed price mid-year.",
+  "expected_findings": [
+    {
+      "claim": "P01's average monthly units sold dropped after its May 2024 price increase",
+      "metric": "p01_pct_unit_change_after_price_increase",
+      "expected_value": -24.31,
+      "tolerance_abs": 3.0
+    }
+  ],
+  "expected_evidence": [
+    "compare_periods(units_sold, before vs after 2024-05-01, filtered to product_id=P01)"
+  ],
+  "known_traps": [
+    "Only one product (P01) has a price change in this dataset; the other 9 products have constant prices and cannot be used to generalize a price-elasticity conclusion. A system should not claim 'raising prices reduces demand across our catalog' from a single-product, single-event observation \u2014 and should note that seasonality (not price alone) could also explain part of the change."
+  ],
+  "dataset": "08_pricing_analysis/data.csv"
+}

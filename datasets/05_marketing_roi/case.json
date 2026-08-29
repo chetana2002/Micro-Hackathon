@@ -1,0 +1,24 @@
+{
+  "question": "Which marketing channel gives us the best return, and should we shift budget toward it?",
+  "expected_findings": [
+    {
+      "claim": "Email has the highest ROI (revenue attributed / spend)",
+      "metric": "top_channel_by_roi",
+      "expected_value": "Email"
+    },
+    {
+      "claim": "Email's ROI ratio",
+      "metric": "top_channel_roi_ratio",
+      "expected_value": 5.36,
+      "tolerance_abs": 0.3
+    }
+  ],
+  "expected_evidence": [
+    "group_by(channel, spend, sum)",
+    "group_by(channel, revenue_attributed, sum)"
+  ],
+  "known_traps": [
+    "'Revenue attributed' is an attribution-model output, not measured incremental revenue \u2014 some of it is likely revenue that would have happened anyway (organic/brand demand). A recommendation to 'shift budget toward the top ROI channel' should be flagged as dependent on attribution-model accuracy, not presented as a guaranteed causal return."
+  ],
+  "dataset": "05_marketing_roi/data.csv"
+}

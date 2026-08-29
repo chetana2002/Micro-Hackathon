@@ -1,0 +1,22 @@
+{
+  "question": "Which region is performing best and worst this year, and are there any regions we should be concerned about?",
+  "expected_findings": [
+    {
+      "claim": "North has the highest total annual revenue",
+      "metric": "top_region_by_total_revenue",
+      "expected_value": "North"
+    },
+    {
+      "claim": "West has the lowest total annual revenue",
+      "metric": "bottom_region_by_total_revenue",
+      "expected_value": "West"
+    }
+  ],
+  "expected_evidence": [
+    "group_by(region, revenue, sum) across all weeks"
+  ],
+  "known_traps": [
+    "East region has only 1 recorded weeks in March 2024 (3 weeks of records are missing due to a simulated system migration), which makes March look like a severe East revenue decline if analyzed naively by week count or raw sum. A correct system should notice the row-count gap (via the dataset profiler's row counts per region/period) before concluding East had a real March decline."
+  ],
+  "dataset": "02_regional_performance/data.csv"
+}

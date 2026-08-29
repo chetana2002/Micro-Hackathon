@@ -1,0 +1,25 @@
+{
+  "question": "What factors are associated with customer churn, and what should we do about it?",
+  "expected_findings": [
+    {
+      "claim": "Support ticket count is positively correlated with churn",
+      "metric": "correlation_support_tickets_churned",
+      "expected_value": 0.1659,
+      "tolerance_abs": 0.05
+    },
+    {
+      "claim": "Overall churn rate in the dataset",
+      "metric": "overall_churn_rate_pct",
+      "expected_value": 22.4,
+      "tolerance_abs": 1.0
+    }
+  ],
+  "expected_evidence": [
+    "correlation(support_tickets, churned)",
+    "calculate_average(churned)"
+  ],
+  "known_traps": [
+    "Support tickets correlating with churn does not establish that tickets cause churn \u2014 the reverse is equally plausible (customers already planning to churn may file more tickets out of frustration). A correct system should flag this as an association, not a cause, and recommend further investigation rather than a confident causal claim."
+  ],
+  "dataset": "04_customer_churn/data.csv"
+}

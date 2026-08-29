@@ -1,0 +1,23 @@
+{
+  "question": "Which shift has the highest defect rate, and is it worth investigating further?",
+  "expected_findings": [
+    {
+      "claim": "Night shift has the highest average defect rate",
+      "metric": "worst_shift_by_defect_rate",
+      "expected_value": "Night"
+    },
+    {
+      "claim": "Night shift's average defect rate",
+      "metric": "worst_shift_defect_rate",
+      "expected_value": 0.0451,
+      "tolerance_abs": 0.005
+    }
+  ],
+  "expected_evidence": [
+    "group_by(shift, defect_rate, mean)"
+  ],
+  "known_traps": [
+    "Defect rate differences by shift could reflect staffing/training differences (a real operational cause) or could reflect that fewer supervisors review night-shift output (a measurement artifact) \u2014 the dataset alone cannot distinguish these, so a root-cause claim beyond 'night shift has a higher measured defect rate' is unsupported."
+  ],
+  "dataset": "10_operational_performance/data.csv"
+}

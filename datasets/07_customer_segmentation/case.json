@@ -1,0 +1,23 @@
+{
+  "question": "How much does each customer segment contribute to total revenue, and where should we focus retention efforts?",
+  "expected_findings": [
+    {
+      "claim": "Premium segment contributes the largest share of total spend",
+      "metric": "top_segment_by_total_spend",
+      "expected_value": "Premium"
+    },
+    {
+      "claim": "Premium segment's share of total spend",
+      "metric": "top_segment_spend_share_pct",
+      "expected_value": 49.81,
+      "tolerance_abs": 3.0
+    }
+  ],
+  "expected_evidence": [
+    "segment_analysis(segment, total_spend)"
+  ],
+  "known_traps": [
+    "Highest total spend by segment is partly a function of segment size (Standard is the largest group by customer count) \u2014 a system should distinguish 'contributes the most total revenue' from 'is the most valuable customer on average', which requires looking at avg_order_value / per-customer spend too."
+  ],
+  "dataset": "07_customer_segmentation/data.csv"
+}

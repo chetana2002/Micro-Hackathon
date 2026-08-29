@@ -1,0 +1,17 @@
+{
+  "question": "Based on this data, what should we expect revenue to be next quarter (Q4)?",
+  "expected_findings": [
+    {
+      "claim": "Revenue shows a generally increasing trend over the observed months",
+      "metric": "trend_direction",
+      "expected_value": "increasing"
+    }
+  ],
+  "expected_evidence": [
+    "trend(date, revenue)"
+  ],
+  "known_traps": [
+    "Only 9 months of history exist and there is no prior-year data, so seasonality cannot be estimated. A system that outputs a specific confident Q4 revenue number (rather than a trend direction plus an explicit statement that the data is insufficient for a reliable seasonal forecast) is overclaiming beyond what the data supports."
+  ],
+  "dataset": "09_revenue_forecast_context/data.csv"
+}

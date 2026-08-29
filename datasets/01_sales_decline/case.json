@@ -1,0 +1,26 @@
+{
+  "question": "Why did revenue decline in Q2 2024, and what should we investigate next?",
+  "expected_findings": [
+    {
+      "claim": "Total revenue declined from Q1 2024 to Q2 2024",
+      "metric": "pct_change_q1_to_q2_total_revenue",
+      "expected_value": -14.41,
+      "tolerance_abs": 0.5
+    },
+    {
+      "claim": "The North region accounts for the large majority of the Q2 decline",
+      "metric": "north_share_of_total_decline_pct",
+      "expected_value": 99.79,
+      "tolerance_abs": 2.0
+    }
+  ],
+  "expected_evidence": [
+    "compare_periods(revenue, Q1 2024 vs Q2 2024)",
+    "segment_analysis or group_by(region, revenue) for Q1 2024 and Q2 2024"
+  ],
+  "known_traps": [
+    "The dataset contains no causal driver column (no marketing spend, pricing, competitor, or promotion data). A correct system should quantify North's contribution to the decline (a supported, descriptive claim) but must NOT assert a root cause for *why* North declined \u2014 that would be an unsupported causal claim given what's actually in the data.",
+    "South, East, and West are flat to slightly up \u2014 a system that claims 'revenue declined across the business' is wrong; the decline is regionally concentrated."
+  ],
+  "dataset": "01_sales_decline/data.csv"
+}

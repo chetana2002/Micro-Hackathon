@@ -1,0 +1,25 @@
+{
+  "question": "Which SKUs are at risk of stocking out, and how big is the problem?",
+  "expected_findings": [
+    {
+      "claim": "Number of SKUs that have fallen below their reorder point at least once",
+      "metric": "at_risk_sku_count",
+      "expected_value": 29,
+      "tolerance_abs": 2
+    },
+    {
+      "claim": "Total stockout-days recorded across all SKUs and warehouses",
+      "metric": "total_stockout_days",
+      "expected_value": 128,
+      "tolerance_abs": 5
+    }
+  ],
+  "expected_evidence": [
+    "segment_analysis or filter(stock_level < reorder_point)",
+    "calculate_sum(stockout_days)"
+  ],
+  "known_traps": [
+    "A SKU can be 'below reorder point' at one warehouse while healthy at others \u2014 aggregating stock risk at the SKU level without the warehouse dimension can overstate or understate the actual operational risk."
+  ],
+  "dataset": "06_inventory_analysis/data.csv"
+}

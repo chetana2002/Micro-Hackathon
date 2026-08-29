@@ -1,0 +1,23 @@
+{
+  "question": "Which products are driving the most revenue, and which are underperforming?",
+  "expected_findings": [
+    {
+      "claim": "P018 is the top revenue-generating product over the period",
+      "metric": "top_product_by_total_revenue",
+      "expected_value": "P018"
+    },
+    {
+      "claim": "P019 is the lowest revenue-generating product over the period",
+      "metric": "bottom_product_by_total_revenue",
+      "expected_value": "P019"
+    }
+  ],
+  "expected_evidence": [
+    "top_n(product_id, revenue)",
+    "bottom_n(product_id, revenue)"
+  ],
+  "known_traps": [
+    "Revenue ranking alone doesn't account for return rates \u2014 a product with high revenue but also a high return rate is a weaker performer than the raw ranking suggests; a thorough answer should surface returns as a caveat."
+  ],
+  "dataset": "03_product_performance/data.csv"
+}
