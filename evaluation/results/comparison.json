@@ -1,0 +1,35 @@
+{
+  "baseline": {
+    "numerical_correctness": 13.5,
+    "key_findings": 11.25,
+    "evidence_grounding": 12.7,
+    "unsupported_claims": 9.75,
+    "recommendation_grounding": 3.65,
+    "business_usefulness": 3.65,
+    "total_score": 54.5,
+    "cases_scored": 10,
+    "cases_failed": 0
+  },
+  "agent": {
+    "numerical_correctness": 21.0,
+    "key_findings": 18.75,
+    "evidence_grounding": 18.2,
+    "unsupported_claims": 13.57,
+    "recommendation_grounding": 4.38,
+    "business_usefulness": 4.1,
+    "total_score": 80.0,
+    "cases_scored": 10,
+    "cases_failed": 0
+  },
+  "improvement": {
+    "numerical_correctness": 7.5,
+    "key_findings": 7.5,
+    "evidence_grounding": 5.5,
+    "unsupported_claims": 3.82,
+    "recommendation_grounding": 0.73,
+    "business_usefulness": 0.45,
+    "total_score": 25.5,
+    "cases_scored": 0,
+    "cases_failed": 0
+  }
+}
